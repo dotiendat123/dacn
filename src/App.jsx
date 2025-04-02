@@ -1,19 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Tasks from './pages/Tasks';
+import Habits from './pages/Habits';
+import Goals from './pages/Goals';
+import Assistant from './pages/Assistant';
+import Header from './components/Header';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/habits" element={<Habits />} />
+        <Route path="/goals" element={<Goals />} />
+        <Route path="/assistant" element={<Assistant />} />
+      </Routes>
+    </Router>
+  );
+};
 
-      <h1 className='text-center text-blue-600 text-2xl'>Vite + React</h1>
-
-
-    </>
-  )
-}
-
-export default App
+export default App;
