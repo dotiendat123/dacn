@@ -20,11 +20,11 @@ const Assistant = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${apiKey}`,
-                    'HTTP-Referer': 'https://yourdomain.com', // Thay bằng domain thật hoặc localhost
+                    'HTTP-Referer': 'http://localhost:5173',
                     'X-Title': 'Productivity Assistant'
                 },
                 body: JSON.stringify({
-                    model: 'openai/gpt-3.5-turbo',
+                    model: 'openai/gpt-3.5-turbo', // Gọi GPT-3.5 từ OpenAI qua OpenRouter
                     messages: [
                         {
                             role: 'system',
@@ -58,13 +58,13 @@ const Assistant = () => {
 
     return (
         <div className="p-4 max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-4">AI Assistant (OpenRouter)</h2>
+            <h2 className="text-2xl font-semibold mb-4">AI Assistant (GPT-3.5 via OpenRouter)</h2>
             <div className="flex gap-2 mb-4">
                 <input
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     className="border px-3 py-2 w-full rounded"
-                    placeholder="Ask me how to plan your time, work better, or set smart goals..."
+                    placeholder="Hỏi tôi về kế hoạch, làm việc hiệu quả, đặt mục tiêu thông minh..."
                 />
                 <button
                     onClick={handleAsk}
